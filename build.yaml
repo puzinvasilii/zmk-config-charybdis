@@ -4,8 +4,8 @@ include:
 - board: nice_nano//zmk
   shield: charybdis_left
 # RGB underglow variant
-- board: nice_nano//zmk
-  shield: charybdis_left_rgb
+#- board: nice_nano//zmk
+#  shield: charybdis_left_rgb
 
 # Standalone mode - right keyboard is primary/central
 - board: nice_nano//zmk
@@ -13,45 +13,45 @@ include:
   snippet: studio-rpc-usb-uart
   cmake-args: -DCONFIG_ZMK_STUDIO=y
 # RGB underglow variant
-- board: nice_nano//zmk
-  shield: charybdis_right_standalone_rgb
-  snippet: studio-rpc-usb-uart
-  cmake-args: -DCONFIG_ZMK_STUDIO=y
+# - board: nice_nano//zmk
+#   shield: charybdis_right_standalone_rgb
+#   snippet: studio-rpc-usb-uart
+#   cmake-args: -DCONFIG_ZMK_STUDIO=y
 
-# Dongle mode - prospector dongle is primary/central with display, right is peripheral
-- board: nice_nano//zmk
-  shield: dongle_charybdis_right
-# RGB underglow variant
-- board: nice_nano//zmk
-  shield: dongle_charybdis_right_rgb
-- board: xiao_ble//zmk
-  shield: dongle_prospector prospector_adapter
-  snippet: studio-rpc-usb-uart
-  cmake-args: -DCONFIG_ZMK_STUDIO=y
-# ZDSE Prospector dongle - zmk-dongle-screen-engine with Neon Cat theme
-- board: xiao_ble//zmk
-  shield: dongle_zdse_prospector dongle_screen_host
-  snippet: studio-rpc-usb-uart
-  cmake-args: -DCONFIG_ZMK_STUDIO=y
-  artifact-name: zdse_neon_cat_prospector
+# # Dongle mode - prospector dongle is primary/central with display, right is peripheral
+# - board: nice_nano//zmk
+#   shield: dongle_charybdis_right
+# # RGB underglow variant
+# - board: nice_nano//zmk
+#   shield: dongle_charybdis_right_rgb
+# - board: xiao_ble//zmk
+#   shield: dongle_prospector prospector_adapter
+#   snippet: studio-rpc-usb-uart
+#   cmake-args: -DCONFIG_ZMK_STUDIO=y
+# # ZDSE Prospector dongle - zmk-dongle-screen-engine with Neon Cat theme
+# - board: xiao_ble//zmk
+#   shield: dongle_zdse_prospector dongle_screen_host
+#   snippet: studio-rpc-usb-uart
+#   cmake-args: -DCONFIG_ZMK_STUDIO=y
+#   artifact-name: zdse_neon_cat_prospector
 
-# Dongle mode - nice_nano dongle with OLED display
-- board: nice_nano//zmk
-  shield: dongle_nice_32 dongle_display
-  snippet: studio-rpc-usb-uart
-  cmake-args: -DCONFIG_ZMK_STUDIO=y
-- board: nice_nano//zmk
-  shield: dongle_nice_64 dongle_display
-  snippet: studio-rpc-usb-uart
-  cmake-args: -DCONFIG_ZMK_STUDIO=y
+# # Dongle mode - nice_nano dongle with OLED display
+# - board: nice_nano//zmk
+#   shield: dongle_nice_32 dongle_display
+#   snippet: studio-rpc-usb-uart
+#   cmake-args: -DCONFIG_ZMK_STUDIO=y
+# - board: nice_nano//zmk
+#   shield: dongle_nice_64 dongle_display
+#   snippet: studio-rpc-usb-uart
+#   cmake-args: -DCONFIG_ZMK_STUDIO=y
 
-# Settings reset for both board types
-- board: nice_nano//zmk
-  shield: settings_reset
-- board: xiao_ble//zmk
-  shield: settings_reset
+# # Settings reset for both board types
+# - board: nice_nano//zmk
+#   shield: settings_reset
+# - board: xiao_ble//zmk
+#   shield: settings_reset
 
-# Tester Pro Micro
-- board: nice_nano//zmk # Replace with the Pro Micro-compatible board you're using
-  shield: tester_pro_micro
-  format: bt
+# # Tester Pro Micro
+# - board: nice_nano//zmk # Replace with the Pro Micro-compatible board you're using
+#   shield: tester_pro_micro
+#   format: bt
