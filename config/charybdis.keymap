@@ -96,6 +96,24 @@
     };
 
     // RGB controls: dedicated direct bindings.
+    // 1. Сначала обрабатываем нажатие с Ctrl: если зажат Ctrl, отправляем `, иначе переходим к проверке Shift
+    ge_ctrl_morph: ge_ctrl_morph {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&ge_shift_morph>, <&kp GRAVE>;
+        mods = <(MOD_LCTL|MOD_RCTL)>;
+        keep-mods = <0>; // Убирает Ctrl, чтобы напечатался чистый символ `
+    };
+
+    // 2. Проверяем Shift: если зажат Shift, отправляем ~, если ничего не зажато — отправляем ESC
+    ge_shift_morph: ge_shift_morph {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp ESC>, <&kp TILDE>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        keep-mods = <0>; // Убирает Shift, чтобы напечаталась чистая тильда ~
+    };    
+    
 
   };
 
@@ -198,16 +216,16 @@
       display-name = "Base";
       bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp ESC       &kp LS(N1)    &kp LS(N2)    &kp LS(N3)    &kp LS(N4)    &kp LS(N5)        &kp LS(N6)    &kp LS(N7)    &kp LS(N8)    &kp LS(N9)    &kp LS(N0)    &kp BSPC
+    &ge_ctrl_morph &kp LS(N1)    &kp LS(N2)    &kp LS(N3)    &kp LS(N4)    &kp LS(N5)        &kp LS(N6)    &kp LS(N7)    &kp LS(N8)    &kp LS(N9)    &kp LS(N0)    &kp BSPC
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp BSLH      &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P         &kp LBRC
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &blt SCROLL TAB &hml LCTRL A  &hml LALT S   &hml LGUI D   &hml LSHIFT F &kp G             &kp H         &hmr RSHIFT J &hmr RGUI K   &hmr RALT L  &hmr RCTRL SEMI      &kp SQT
+    &blt SCROLL TAB &hml LCTRL A &hml LALT S  &hml LGUI D   &hml LSHIFT F &blt SNIPING G    &kp H         &hmr RSHIFT J &hmr RGUI K   &hmr RALT L  &hmr RCTRL SEMI      &kp SQT
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp CAPS      &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp RBRC
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 //               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────╮
-                  &lalt_dt      &mo LOWER     &mo POINTER   &gui_ctrlb    &kp LCTRL         &kp RET      &blt SYMBOLS SPACE  &blt RAISE BSPC
+                  &mkp MB1     &blt SCROLL RCLK &mo POINTER &mt LSFT RET &blt SYMBOLS MINUS &mt LCTRL UNDER &blt POINTER SPACE  &blt RAISE BSPC
 //               ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
       >;
     };
@@ -219,11 +237,11 @@
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp GRAVE     &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LA(TAB)   &kp LGUI      &kp LALT      &mo SNIPING   &mkp MB4      &mkp MB5          &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp F11       &kp F12
+    &kp LA(TAB)   &kp LGUI      &kp LALT      &mo SNIPING   &mkp MB4      &mkp MB5          &kp PG_UP      &kp HOME     &kp UP        &kp END       &kp F11       &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp RCTRL     &kp LG(A)     &ctrl_cmd_hold &mkp RCLK    &mkp LCLK     &mkp MCLK         &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp MINUS     &kp EQUAL
+    &kp RCTRL     &kp LS(N9)    &kp LS(LBRC)  &kp LBRC      &kp LS(COMMA) &kp PSCRN         &kp PG_DN      &kp LEFT      &kp DOWN        &kp RIGHT     &kp MINUS     &kp EQUAL
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp CAPS      &hml LGUI LG(Z) &hml LALT LG(X) &hml LCTRL LG(C) &hml LSHIFT LG(V) &mo SCROLL    &kp RC(LS(TAB)) &hmr RSHIFT LC(TAB) &hmr RCTRL INS &hmr RALT INS &hmr RGUI LBKT &kp RBKT
+    &kp CAPS      &kp LS(N0)    &kp LS(RBRC)  &kp RBRC.     &kp LS(DOT)   &mo SCROLL        &kp RC(LS(TAB)) &hmr RSHIFT LC(TAB) &hmr RCTRL INS &hmr RALT INS &hmr RGUI LBKT &kp RBKT
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 //               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────╮
                   &trans        &trans        &trans        &trans        &trans            &trans        &trans        &trans
