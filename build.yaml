@@ -46,10 +46,10 @@ include:
 #   cmake-args: -DCONFIG_ZMK_STUDIO=y
 
 # Settings reset for both board types
-- board: nice_nano//zmk
-  shield: settings_reset
-- board: xiao_ble//zmk
-  shield: settings_reset
+# - board: nice_nano//zmk
+#   shield: settings_reset
+# - board: xiao_ble//zmk
+#   shield: settings_reset
 
 # # Tester Pro Micro
 # - board: nice_nano//zmk # Replace with the Pro Micro-compatible board you're using

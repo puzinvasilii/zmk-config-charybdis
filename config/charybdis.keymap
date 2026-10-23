@@ -241,7 +241,7 @@
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp RCTRL     &kp LS(N9)    &kp LS(LBRC)  &kp LBRC      &kp LS(COMMA) &kp PSCRN         &kp PG_DN      &kp LEFT      &kp DOWN        &kp RIGHT     &kp MINUS     &kp EQUAL
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp CAPS      &kp LS(N0)    &kp LS(RBRC)  &kp RBRC.     &kp LS(DOT)   &mo SCROLL        &kp RC(LS(TAB)) &hmr RSHIFT LC(TAB) &hmr RCTRL INS &hmr RALT INS &hmr RGUI LBKT &kp RBKT
+    &kp CAPS      &kp LS(N0)    &kp LS(RBRC)  &kp RBRC      &kp LS(DOT)   &mo SCROLL        &kp RC(LS(TAB)) &hmr RSHIFT LC(TAB) &hmr RCTRL INS &hmr RALT INS &hmr RGUI LBKT &kp RBKT
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 //               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────╮
                   &trans        &trans        &trans        &trans        &trans            &trans        &trans        &trans
